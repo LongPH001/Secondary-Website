@@ -2,24 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial scale=1.0">
-    <title>Long Hoang </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Hoang</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-    header {
-        background-color: black;
-        color: white;
-        padding: 10px 0;
-        text-align: center;
-    }
-    h1 {
-        margin: 0;
-        font-size: 2.5rem;
-    }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+            transition: 0.3s;
+        }
+        header {
+            background-color: white;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #about, #contact, #portfolio {
+            background-color: #f9f9f9;
+            margin: 40px 0;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
+<body>
+    <header>
+        <h1>Long Hoang</h1>
+        <p>Welcome to my portfolio</p>
+        <p>Showcase of my work and achievements</p>
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#portfolio">My Portfolio</a></li>
+        </ul>
+    </nav>
+    <h2>Countries that I have been to</h2>
+    <button onclick="location.href= 'image.html';"> Click here </button>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Born in Saigon, grown in Calgary. Currently a student enrolled in IDD User Experience in SAIT.</p>
+    </section>
+
+
+    <section id="portfolio">
+        <h2>My Portfolio</h2>
+        <p>This section will showcase your projects.</p>
+    </section>
+
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Phuong.Hoang@edu.sait.ca</p>
+    </section>
+
+
+    <footer>
+        <p>© 2024 Long’s Folio website</p>
+    </footer>
+</body>
 </html>
