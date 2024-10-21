@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Playfair+Display:wght@700&display=swap');
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* Smooth scrolling for navigation links */
+}
+
+/* Styles for navigation */
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    transition: 0.3s;
+}
+
+/* Styles for header */
+header {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif; /* Elegant serif font */
+    font-size: 3rem;
+    margin: 0;
+    color: #333;
+    opacity: 0; /* Initially hidden for fade-in effect */
+    animation: fadeInTitle 1.5s ease forwards; /* Title fade-in animation */
+}
+
+header:hover h1 {
+    color: #ff6347; /* Highlight the title when hovered */
+    transition: color 0.5s;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Section styles */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    opacity: 0; /* Initially hidden for fade-in effect */
+    transform: translateY(50px); /* Move down initially */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move into position */
+}
+
+#about, #contact, #portfolio {
+    background-color: #f9f9f9;
+    margin: 40px 0;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Button styles */
+button {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, black, black); /* Gradient color */
+    border: none;
+    border-radius: 30px; /* Fully rounded button */
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff4500, #ff6347); /* Reverse gradient on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px); /* Lift the button when hovered */
+}
+
+button:active {
+    transform: translateY(2px); /* Press down effect when clicked */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframe animations */
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
