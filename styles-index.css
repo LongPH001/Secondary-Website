@@ -103,7 +103,13 @@ footer {
     text-align: center;
     padding: 10px;
 }
-
+/*Centering container for the button */
+.center-button-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 /* Button styles */
 button {
     display: inline-block;
