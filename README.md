@@ -1,1 +1,1 @@
-# My-Website
+This is my own website, feel free to share or contact me (Found in the contact section)
