@@ -1,28 +1,60 @@
-const track = document.getElementById("image-track");
+document.addEventListener("DOMContentLoaded", function () {
+    // Initial fade-in for the main content
+    const title = document.querySelector("h1");
+    const firstParagraph = document.querySelector("p:nth-of-type(1)");
+    const secondParagraph = document.querySelector("p:nth-of-type(2)");
 
-window.onmousedown = e => {
-    track.dataset.mouseDownAt = e.clientX;
-};
+    title.classList.add("fade-in");
+    firstParagraph.classList.add("fade-in-delay-1");
+    secondParagraph.classList.add("fade-in-delay-2");
 
-window.onmousemove = e => {
-    if (track.dataset.mouseDownAt === "0") return;
+    // Intersection Observer to trigger fade-in on scroll for the "About" section
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
 
-    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-          maxDelta = window.innerWidth / 2;
+    // Select the "About" section and observe it
+    const aboutSection = document.querySelector(".about");
+    observer.observe(aboutSection);
+});
 
-    let percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentage = Math.min(Math.max(parseFloat(track.dataset.prevPercentage) + percentage, -100), 0);
+let activeIndex = 0;
 
-    track.dataset.percentage = nextPercentage;
+const groups = document.getElementsByClassName("card-group");
 
-    track.style.transform = `translate(${nextPercentage}%, -50%)`;
+const handleLoveClick = () => {
+  const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
+  
+  const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
+        nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+        
+  currentGroup.dataset.status = "after";
+  
+  nextGroup.dataset.status = "becoming-active-from-before";
+  
+  setTimeout(() => {
+    nextGroup.dataset.status = "active";
+    activeIndex = nextIndex;
+  });
+}
 
-    for (const image of track.getElementsByClassName("image")) {
-        image.style.objectPosition = `${100 + nextPercentage}% center`;
-    }
-};
-
-window.onmouseup = () => {
-    track.dataset.mouseDownAt = "0";
-    track.dataset.prevPercentage = track.dataset.percentage;
-};
+const handleHateClick = () => {
+  const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
+  
+  const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
+        nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+  
+  currentGroup.dataset.status = "before";
+  
+  nextGroup.dataset.status = "becoming-active-from-after";
+  
+  setTimeout(() => {
+    nextGroup.dataset.status = "active";
+    activeIndex = nextIndex;
+  });
+}

@@ -1,75 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Long Hoang</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Hoang</title>
 
-<!--Link the index.html to script.js-->
-  <script src="script.js" defer></script>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles-index.css">
+    
+    <!-- Google Fonts Import -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap');
+    </style>
 
-<!--Link the index.html to styles-index.css-->
-  <link rel="stylesheet" href="styles-index.css">
+    <!-- Lottie Player for animation -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Link to JavaScript file -->
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header>
-      <h1>Long Hoang</h1>
-      <p>Welcome to my portfolio</p>
-      <p>Showcase of my work and achievements</p>
-  </header>
+    <!-- Content Section -->
+    <section class="content">
+        <div class="text-and-animation">
+            <!-- Animation and Title Side by Side -->
+            <iframe 
+                src="https://lottie.host/embed/788f9a0e-ab6d-432c-af38-6adc19629a98/tB6UQM9mIA.json" 
+                style="width: 150px; height: 150px; border: none;" 
+                aria-label="Animation">
+            </iframe>
+            <div class="text">
+                <h1 class="hidden">Hi, I’m <span>Long</span>.</h1>
+                <p class="hidden">I’m a <strong>UX designer</strong> working on case study and projects.</p>
+                <p class="hidden">Currently a student at <strong>SAIT</strong>.</p>
+                 <!-- Icon container -->
+    <div class="icon-container">
+        <i class="fab fa-html5" aria-label="HTML5"></i>
+        <i class="fab fa-css3-alt" aria-label="CSS3"></i>
+        <i class="fab fa-js-square" aria-label="JavaScript"></i>
+    </div>
+</section>
+            </div>
+        </div>
+    </section>
 
-  <nav>
-      <ul>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#portfolio">My Portfolio</a></li>
-          <li><a href="Page/biography.html">My Biography</a></li>
-      </ul>
-  </nav>
+    <!-- About Section -->
+    <section class="about hidden">
+        <h2>A bit about me</h2>
+        <p>Love on a daily basis</p>
 
-  <h3>2024 Summer Vacation</h3>
-  <!-- Styled Button -->
-  <button onclick="location.href='image.html';">Photo Album</button>
+        <!-- Card Swiper Container -->
+        <div class="card-swiper">
+            <div class="card-groups">
+                <!-- Card Group 1 -->
+                <div class="card-group" data-index="0" data-status="active">
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                </div>
 
-  <section id="about">
-      <h2>About Me</h2>
-      <p>Born in Saigon, grown in Calgary. Currently a student enrolled in IDD User Experience in SAIT.</p>
-  </section>
+                <!-- Card Group 2 -->
+                <div class="card-group" data-index="1" data-status="unknown">
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                </div>
 
-  <section id="portfolio">
-      <h2>My Portfolio</h2>
-      <p>Soon to be filled</p>
-  </section>
+                <!-- Card Group 3 -->
+                <div class="card-group" data-index="2" data-status="unknown">
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                    <div class="little-card card"></div>
+                    <div class="big-card card"></div>
+                </div>
+            </div>
 
-  <section id="contact">
-      <h2>Contact</h2>
-      <p>Phuong.Hoang@edu.sait.ca</p>
-  </section>
-
-  <footer>
-      <p>© 2024 Long's Folio website</p>
-  </footer>
-
-  <script>
-      // Intersection Observer for revealing sections as they come into view
-      const sections = document.querySelectorAll('section');
-
-      const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  entry.target.classList.add('visible');
-                  observer.unobserve(entry.target);
-              }
-          });
-      }, {
-          threshold: 0.1
-      });
-
-      sections.forEach(section => {
-          observer.observe(section);
-      });
-  </script>
+            <!-- Card Swiper Buttons -->
+            <div class="card-swiper-buttons">
+                <button id="hate-button" onclick="handleHateClick()">
+                    <i class="fas fa-x"></i>
+                </button>
+                <button id="love-button" onclick="handleLoveClick()">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
+
+   <!-- Social Media Icons at the Bottom -->
+<footer>
+    <hr>
+    <div class="social-icons">
+        <a href="mailto:longhoang2642@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://x.com/LongHongPh48355" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/long-ho%C3%A0ng-ph%C6%B0%C6%A1ng/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+</footer>
