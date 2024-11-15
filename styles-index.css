@@ -13,13 +13,13 @@ body {
 }
 /* Full-screen sections */
 section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh; /* Full viewport height */
-    scroll-snap-align: start; /* Each section snaps to the top */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh; /* Change from height to min-height */
+  scroll-snap-align: start;
 }
 
 /* Flex container for text and animation */
@@ -39,18 +39,6 @@ section {
     max-width: 800px;
 }
 
-h1 span {
-    font-family: 'Cursive Font', sans-serif;
-}
-
-h1 {
-    font-family: 'Playfair Display', serif; /* Elegant serif font */
-    font-size: 3rem;
-    margin: 0;
-    color: #ffee00;
-    opacity: 0; /* Initially hidden for fade-in effect */
-    animation: fadeInTitle 1.5s ease forwards; /* Title fade-in animation */
-}
 
 .about h2 {
     font-family: 'Edu AU VIC WA NT Pre', sans-serif; /* Apply the Google font */
@@ -469,10 +457,103 @@ footer hr {
   background-color: #000; /* Match background color */
 }
 
+:root {  
+  --purple: rgb(123, 31, 162);
+  --violet: rgb(103, 58, 183);
+  --pink: rgb(244, 143, 177);
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes scale {
+  from, to {
+    transform: scale(0);
+  }
+  
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto; /* Change to 'auto' */
+}
+h1, .text-and-animation, .icon-container, .about, .project-section {
+  display: block;
+}
+
+h1 {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: clamp(2em, 2vw, 4em);
+  font-weight: 400;
+  margin: 0px;
+  padding: 20px;
+  text-align: center;
+}
+
 h1 > .magic {
+  display: inline-block;
+  position: relative;
+}
+
+h1 > .magic > .magic-star {
+  --size: clamp(20px, 1.5vw, 30px);
+  
+  animation: scale 700ms ease forwards;
+  display: block;
+  height: var(--size);
+  left: var(--star-left);
+  position: absolute;
+  top: var(--star-top);
+  width: var(--size);
+}
+
+h1 > .magic > .magic-star > svg {
+  animation: rotate 1000ms linear infinite;
+  display: block;
+  opacity: 0.7;
+}
+
+h1 > .magic > .magic-star > svg > path {
+  fill: var(--violet);
+}
+
+h1 > .magic > .magic-text {
+  animation: background-pan 3s linear infinite;
   background: linear-gradient(
     to right,
     var(--purple),
-    var()
-  )
+    var(--violet),
+    var(--pink),
+    var(--purple)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }
