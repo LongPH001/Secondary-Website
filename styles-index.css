@@ -381,13 +381,6 @@ body {
     color: #ffee00; /* Adjust hover color as desired */
 }
 
-/* Footer Styling */
-footer {
-    padding: 20px 0;
-    text-align: center;
-    background-color: transparent; /* Set background color as needed */
-}
-
 /* Social Icons Container */
 .social-icons {
     display: flex;
@@ -413,10 +406,73 @@ footer {
     background-color: #333; /* Change background on hover */
 }
 
+/* Project Section Styling */
+.project-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-text {
+  max-width: 400px;
+  text-align: left;
+  flex: 1; /* Ensure text takes up its share of space */
+}
+
+/* Project image styling */
+.project-image {
+  flex: 1; /* Ensures the image takes up its share of space */
+  display: flex;
+  justify-content: flex-end; /* Align image to the right */
+}
+
+.project-image iframe {
+  width: 300px;
+  height: 600px;
+  transform: rotate(-10deg); /* Angle the image */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-section {
+      flex-direction: column;
+      text-align: center;
+  }
+  
+  .project-image img {
+      transform: none;
+      margin-top: 20px;
+  }
+}
+
 /* Styling for the line above the social icons */
 footer hr {
-    width: 100%; /* Adjust width as needed */
-    border: 0;
-    border-top: 2px solid #ffffff; /* Line color */
-    margin: 20px auto; /* Center the line and add spacing */
+  width: 100%; /* Adjust width as needed */
+  border: 0;
+  border-top: 2px solid #ffffff; /* Line color */
+  margin: 20px auto; /* Center the line and add spacing */
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000; /* Match background color */
+}
+
+h1 > .magic {
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var()
+  )
 }
