@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const aboutSection = document.querySelector(".about");
     observer.observe(aboutSection);
 });
-
+// animation for the card //
 let activeIndex = 0;
 
 const groups = document.getElementsByClassName("card-group");
@@ -58,7 +58,7 @@ const handleHateClick = () => {
     activeIndex = nextIndex;
   });
 }
-
+// animation for the font at the h1 //
 let index = 0,
     interval = 1000;
 
@@ -83,3 +83,4 @@ for(const star of document.getElementsByClassName("magic-star")) {
 }
 console.log("Title animation started.");
 title.classList.add("fade-in");
+

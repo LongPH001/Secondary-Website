@@ -1,16 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Playfair+Display:wght@700&display=swap');
 
-/* Base styles */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-    color: #f5f5f5;
-    font-family: Arial, sans-serif;
-    scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
-    overflow-y: scroll;
-    height: 100vh;
+html{
+  scroll-behavior: smooth;
 }
+
 /* Full-screen sections */
 section {
   display: flex;
@@ -578,3 +571,4 @@ h1 > .magic > .magic-text {
     max-width: 200px; /* Resize images for mobile */
   }
 }
+
