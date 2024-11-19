@@ -44,29 +44,31 @@ window.onpointermove = (event) => {
   }
 };
 
-// Star Animation Effect for "UX Designer"
-let index = 0,
-  interval = 1000;
+// Scope for Star Animation
+(() => {
+  let index = 0,
+    interval = 1000;
 
-const rand = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
+  const rand = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1)) + min;
 
-const animateStar = (star) => {
-  star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
-  star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
+  const animateStar = (star) => {
+    star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
+    star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
 
-  star.style.animation = "none";
-  star.offsetHeight;
-  star.style.animation = "";
-};
+    star.style.animation = "none";
+    star.offsetHeight; // Trigger reflow
+    star.style.animation = "";
+  };
 
-for (const star of document.getElementsByClassName("magic-star")) {
-  setTimeout(() => {
-    animateStar(star);
+  for (const star of document.getElementsByClassName("magic-star")) {
+    setTimeout(() => {
+      animateStar(star);
 
-    setInterval(() => animateStar(star), 1000);
-  }, index++ * (interval / 3));
-}
+      setInterval(() => animateStar(star), 1000);
+    }, index++ * (interval / 3));
+  }
+})();
 
 let activeIndex = 0;
 
@@ -104,3 +106,31 @@ const handleHateClick = () => {
   });
 }
 
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+let interval = null;
+
+document.querySelector("h2").onmouseover = event => {  
+  let iteration = 0;
+  
+  clearInterval(interval);
+  
+  interval = setInterval(() => {
+    event.target.innerText = event.target.innerText
+      .split("")
+      .map((letter, index) => {
+        if(index < iteration) {
+          return event.target.dataset.value[index];
+        }
+      
+        return letters[Math.floor(Math.random() * 26)]
+      })
+      .join("");
+    
+    if(iteration >= event.target.dataset.value.length){ 
+      clearInterval(interval);
+    }
+    
+    iteration += 1 / 3;
+  }, 30);
+}
