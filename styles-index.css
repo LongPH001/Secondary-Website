@@ -793,9 +793,9 @@ footer {
 .dotted-line {
   width: 2px; /* Thin line */
   height: 50px; /* Height of the line */
-  margin: 20px auto; /* Centered */
+  margin-left: 24px;
   position: relative;
-  border-left: 2px dotted white; /* Create the dotted line */
+  border-left: 2px;
   overflow: hidden; /* Ensure the gradient doesn't go beyond the line */
 }
 
@@ -820,18 +820,6 @@ footer {
       transform: translateY(100%); /* End below the dotted line */
   }
 }
-
-
-/* Keyframes for animation */
-@keyframes fade-down {
-  0% {
-      transform: translateY(-100%); /* Start from the top */
-  }
-  100% {
-      transform: translateY(100%); /* End at the bottom */
-  }
-}
-
 
 h2 {
   font-family: 'Space Mono', monospace;
