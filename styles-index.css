@@ -629,6 +629,7 @@ body.scrolled #blob {
   backdrop-filter: blur(12vmax);
   pointer-events:none;
   backdrop-filter: blur(12vmax);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
 .image-container {
