@@ -77,11 +77,19 @@ section.visible {
     margin-bottom: 0;
 }
 
+.about p {
+  font-size: 1.2rem; /* Increase font size */
+  line-height: 1.8; /* Add line height for readability */
+  color: #f0f0f0;
+  margin-bottom: 20px; /* Add spacing between paragraphs */
+}
+
 .card-swiper {
-    margin-top: 10px;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
 /* Hide elements initially */
@@ -288,6 +296,7 @@ body {
     display: grid;
     place-items: center;
     cursor: pointer;
+    pointer-events: auto;
   }
   /* Specific styling for the "Love" button */
   #love-button {
@@ -564,7 +573,7 @@ body {
 h1 {
   font-family: 'Space Mono', monospace;
   font-size: clamp(2rem, 2vw, 4rem);
-  color: white;
+  color: rgb(255, 255, 255);
   white-space: nowrap;
   padding: 0rem clamp(1rem, 2vw, 3rem);
   border-radius: clamp(0.4rem, 0.75vw, 1rem);
@@ -579,16 +588,16 @@ h1 {
 
 #blob {
   background-color: white;
-  height: 32vmax;
+  height: 34vmax;
   aspect-ratio: 1;
   position: fixed;
   left: 50%;
   top: 50%;
   translate: -50% -50%;
   border-radius: 50%;
-  background: linear-gradient(to right, aquamarine, mediumpurple);
+  background: linear-gradient(to right, rgb(212, 18, 131), mediumpurple);
   animation: rotate 20s infinite;
-  opacity: 0.8;
+  opacity: 0.3;
   pointer-events: none; /* Prevent blob from interfering with mouse events */
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
@@ -611,12 +620,147 @@ body.scrolled #blob {
 }
 
 #blur {
-  height: 600%;
+  height: 6000%;
   width: 100%;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 0;
   backdrop-filter: blur(12vmax);
   pointer-events:none;
+  backdrop-filter: blur(12vmax);
 }
 
+.image-container {
+  flex: 1;
+ z-index: 1;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ perspective: 1000px;
+ position: relative;
+}
 
+.image-container img {
+  max-width: 400px;
+  height: auto;
+  border-radius: 20px; /* Rounded corners for the image */
+  z-index: 1; /* Ensure the image is above the shadow */
+  transform: rotate(-15deg) translateY(-10px); /* Tilt and slightly elevate the phone */
+  transition: transform 0.3s ease;
+  right: 1000;
+}
+
+.image-container img:hover {
+  transform: rotate(-10deg) translateY(-5px); /* Slight movement on hover */
+}
+
+/* Pseudo-element for rounded shadow */
+.image-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Match the image's rounded corners */
+  background: rgba(0, 0, 0, 0.3); /* Shadow color */
+  filter: blur(20px); /* Blurring for shadow */
+  z-index: 0; /* Place it behind the image */
+  transform: rotate(-15deg) translateY(-10px); /* Align with the image's transform */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image-container:hover::before {
+  transform: rotate(-10deg) translateY(-5px); /* Slight movement on hover */
+  opacity: 0.7; /* Enhance shadow visibility on hover */
+}
+
+iframe {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(60%, -150%);
+  z-index: 2;
+}
+
+.lottie-container {
+  position: absolute; /* Enables custom positioning */
+  top: 30%; /* Adjust as needed */
+  left: 40%; /* Adjust as needed */
+  transform: translate(-50%, -50%); /* Keeps it centered relative to its position */
+  z-index: 3; /* Place it above other elements */
+}
+
+.project-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+  gap: 40px;
+}
+
+/* Text Content */
+.project-text {
+  flex: 1;
+  max-width: 40%; /* Adjust to control the width of the text block */
+  display: flex;
+  flex-direction: column; /* Stack the text vertically */
+  justify-content: center; /* Vertically align the content */
+  text-align: left; /* Align text to the left */
+  letter-spacing: 0.01em;
+}
+
+.project-text .year {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: -150px;
+}
+
+.project-text h2 {
+  font-size: 3rem;
+  margin: 0.5;
+}
+
+.project-text .description {
+  font-size: 2rem; /* Description font size */
+  line-height: 1; /* Add spacing between lines for readability */
+}
+
+.text-container {
+  color: #fff; /* White text color */
+  border-radius: 10px; /* Rounded corners for the container */
+  max-width: 800px; /* Limit the container width */
+  margin: 20px auto; /* Center the container horizontally and add vertical margin */
+}
+
+.text-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+  line-height: 1.8; /* Improve readability */
+  margin-bottom: 20px;
+  font-family: 'Space Mono', monospace;
+}
+
+.text-container p:last-child {
+  margin-bottom: 0; /* Remove margin for the last paragraph */
+}
+
+.secondary-image {
+  position: absolute; /* Secondary image positioned above */
+  z-index: 3; /* Higher stacking order */
+  left: 50px; /* Example offset to make it visible */
+  top: 50px; /* Example offset */
+}
+
+footer {
+  z-index: 10; /* Make sure it is above other elements */
+}
