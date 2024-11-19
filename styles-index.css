@@ -427,18 +427,6 @@ body {
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* Responsive Design */
-@media (max-width: 768px) {
-  .project-section {
-      flex-direction: column;
-      text-align: center;
-  }
-  
-  .project-image img {
-      transform: none;
-      margin-top: 20px;
-  }
-}
 
 /* Styling for the line above the social icons */
 footer hr {
@@ -540,27 +528,6 @@ h1 > .magic > .magic-text {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5em; /* Adjust title size for tablets */
-  }
-  
-  .image-container {
-    flex-direction: column; /* Stack images vertically on smaller screens */
-    gap: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2em; /* Adjust title size for mobile */
-  }
-
-  .image-container img {
-    max-width: 200px; /* Resize images for mobile */
-  }
 }
 
 body {
@@ -832,4 +799,65 @@ h2 {
 h2:hover {
   background-color: white;
   color: black;
+}
+
+/* MacBook Pro */
+@media only screen and (min-width: 1280px) and (max-width: 1440px) and (min-height: 800px) {
+  body {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+  }
+
+  .project-text {
+      font-size: 1.2rem;
+  }
+}
+
+/* iPhone (Portrait) */
+@media only screen and (max-width: 390px) and (orientation: portrait) {
+  .project-text {
+      font-size: 1rem;
+      text-align: center;
+  }
+
+  .dotted-line {
+      height: 30px;
+  }
+}
+
+/* iPhone (Landscape) */
+@media only screen and (max-width: 844px) and (orientation: landscape) {
+  .project-text {
+      font-size: 1.1rem;
+  }
+}
+
+/* General Small Devices */
+@media only screen and (max-width: 768px) {
+  .project-text {
+      font-size: 1rem;
+      padding: 15px;
+  }
+}
+
+/* General Medium Devices */
+@media only screen and (max-width: 1024px) {
+  .project-text {
+      font-size: 1.1rem;
+  }
+
+  .dotted-line {
+      height: 40px;
+  }
+}
+
+/* General Large Devices */
+@media only screen and (min-width: 1280px) {
+  .project-text {
+      font-size: 1.3rem;
+  }
+
+  .dotted-line {
+      height: 50px;
+  }
 }
